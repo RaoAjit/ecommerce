@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+ <h3>Registration_form</h3>
+ 
+  <div class="col-sm-9 offset-sm-1 ">
+    <form action="{% url 'customerregistration' %}" method="post" novalidate class="shadow p-5">
+      {% csrf_token %} 
+     {% for form in ajj %} 
+     <div class="col-sm-6 offset-sm-3">{{form.label_tag}} {{form}} {{form.errors|striptags}}</div>
+     {% endfor %} 
+     <div>{{ajit}}</div>
+    <input type="submit" value="submit" class="btn btn-danger col-sm-6 offset-sm-3 mt-sm-3">
+    </form>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
